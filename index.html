@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oksana Borisovna Ivanova — Психолог · Психотерапевт</title>
+  <meta name="description" content="Oksana Borisovna Ivanova — психолог и психотерапевт с 17-летним опытом. Помогаю обрести внутреннюю гармонию и счастье." />
+  <meta property="og:image" content="assets/hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/hero.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-logo">Oksana Ivanova</a>
+      <ul class="nav-links">
+        <li><a href="#about"><span class="ru">Обо мне</span><span class="en">About</span></a></li>
+        <li><a href="#gallery"><span class="ru">Кабинет</span><span class="en">Practice</span></a></li>
+        <li><a href="#who"><span class="ru">Кому помогаю</span><span class="en">Who I Help</span></a></li>
+        <li><a href="#work"><span class="ru">С чем работаю</span><span class="en">What I Work With</span></a></li>
+        <li><a href="#approach"><span class="ru">Подход</span><span class="en">Approach</span></a></li>
+        <li><a href="javascript:void(0)" onclick="openModal(); return false;"><span class="ru">Записаться</span><span class="en">Book Now</span></a></li>
+        <li><a href="#contact"><span class="ru">Контакты</span><span class="en">Contact</span></a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+          <span class="lang-ru">EN</span>
+          <span class="lang-en-label">RU</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="#about" class="mobile-link"><span class="ru">Обо мне</span><span class="en">About</span></a>
+    <a href="#gallery" class="mobile-link"><span class="ru">Кабинет</span><span class="en">Practice</span></a>
+    <a href="#who" class="mobile-link"><span class="ru">Кому помогаю</span><span class="en">Who I Help</span></a>
+    <a href="#work" class="mobile-link"><span class="ru">С чем работаю</span><span class="en">What I Work With</span></a>
+    <a href="#approach" class="mobile-link"><span class="ru">Подход</span><span class="en">Approach</span></a>
+    <a href="#contact" class="mobile-link"><span class="ru">Контакты</span><span class="en">Contact</span></a>
+    <button class="lang-toggle" id="langToggleMobile" aria-label="Toggle language">
+      <span class="lang-ru">EN</span>
+      <span class="lang-en-label">RU</span>
+    </button>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-photo-panel">
+      <img src="assets/hero.webp" alt="Oksana Ivanova" loading="eager" />
+    </div>
+    <div class="hero-content-panel">
+      <div class="hero-content">
+        <span class="hero-eyebrow">
+          <span class="ru">Психолог · Психотерапевт · 17 лет опыта</span>
+          <span class="en">Psychologist · Psychotherapist · 17 Years Experience</span>
+        </span>
+        <h1>
+          <span class="hero-name-line">Oksana</span>
+          <span class="hero-name-line hero-name-surname">Ivanova</span>
+        </h1>
+        <div class="hero-divider"></div>
+        <p class="hero-tagline">
+          <span class="ru">Помогаю справиться с тревогой, внутренним напряжением, кризисами и трудностями в отношениях — чтобы вы снова чувствовали опору, ясность и контроль над своей жизнью.</span>
+          <span class="en">I help people cope with anxiety, inner tension, crises, and relationship difficulties — so you can feel grounded, clear, and in control of your life again.</span>
+        </p>
+        <p class="hero-support">
+          <span class="ru">Индивидуальная психотерапия для взрослых — онлайн и очно. Бережный, профессиональный и уважительный подход к вашему темпу и опыту.</span>
+          <span class="en">Individual psychotherapy for adults — online and in person. A gentle, professional approach that respects your pace and experience.</span>
+        </p>
+        <a href="javascript:void(0)" class="hero-cta" id="heroCta" onclick="openModal(); return false;">
+          <span class="ru">Записаться на первую консультацию</span>
+          <span class="en">Book Your First Consultation</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="hero-reassurance">
+          <div class="hero-reassurance-item">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <span class="ru">Первая встреча — чтобы спокойно обсудить ваш запрос и понять, как я могу быть полезна.</span>
+            <span class="en">The first meeting is to calmly discuss your request and understand how I can help.</span>
+          </div>
+          <div class="hero-reassurance-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="ru">Конфиденциально · Ответ в течение 24 часов</span>
+            <span class="en">Confidential · I respond within 24 hours</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span class="ru">Листайте</span>
+        <span class="en">Scroll</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-text-col reveal">
+          <span class="eyebrow">
+            <span class="ru">Обо мне</span>
+            <span class="en">About</span>
+          </span>
+          <h2>
+            <span class="ru">Oksana Ivanova</span>
+            <span class="en">Oksana Ivanova</span>
+          </h2>
+          <p class="lead">
+            <span class="ru">Я практикующий психолог и психотерапевт с 17-летним опытом работы.</span>
+            <span class="en">I am a practicing psychologist and psychotherapist with 17 years of professional experience.</span>
+          </p>
+          <p>
+            <span class="ru">Помогаю людям, которые устали жить в постоянном напряжении, сомнениях, внутренней критике или повторяющихся сложностях в отношениях. В работе для меня важно не просто дать поддержку в трудный момент, а помочь вам глубже понять себя, увидеть причины происходящего и постепенно прийти к устойчивым изменениям.</span>
+            <span class="en">I help people who are tired of living in constant tension, self-doubt, inner criticism, or recurring relationship difficulties. For me, the work is not just about providing support in a difficult moment — it's about helping you understand yourself more deeply, see the roots of what's happening, and gradually reach lasting change.</span>
+          </p>
+          <p>
+            <span class="ru">Ко мне приходят с тревогой, эмоциональным выгоранием, ощущением потери опоры, трудностями в отношениях, неуверенностью в себе и кризисами, которые хочется пройти не в одиночку. Я работаю бережно, без давления и готовых шаблонов. Мы движемся в вашем темпе, с уважением к вашему опыту, границам и состоянию.</span>
+            <span class="en">People come to me with anxiety, emotional burnout, a sense of lost grounding, relationship difficulties, self-doubt, and crises they want to navigate with support. I work gently, without pressure or ready-made templates. We move at your pace, with respect for your experience, boundaries, and current state.</span>
+          </p>
+          <div class="about-stats reveal reveal-d1">
+            <div>
+              <div class="about-stat-num">5 000+</div>
+              <div class="about-stat-label">
+                <span class="ru">часов практики</span>
+                <span class="en">hours of practice</span>
+              </div>
+            </div>
+            <div>
+              <div class="about-stat-num">17</div>
+              <div class="about-stat-label">
+                <span class="ru">лет профессионального опыта</span>
+                <span class="en">years of professional experience</span>
+              </div>
+            </div>
+            <div>
+              <div class="about-stat-num">800+</div>
+              <div class="about-stat-label">
+                <span class="ru">проведённых консультаций</span>
+                <span class="en">consultations conducted</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-photo-col reveal reveal-d2">
+          <div class="about-photo-main">
+            <img src="assets/about-section.webp" alt="Oksana Ivanova" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY
+  ============================================================ -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="eyebrow">
+          <span class="ru">Атмосфера</span>
+          <span class="en">Atmosphere</span>
+        </span>
+        <h2>
+          <span class="ru">Кабинет и процесс работы</span>
+          <span class="en">The Space We Work In</span>
+        </h2>
+        <div class="divider"></div>
+        <p class="lead">
+          <span class="ru">Безопасное, спокойное и конфиденциальное пространство, где можно говорить о важном, разбираться в себе и постепенно возвращать внутреннюю устойчивость.</span>
+          <span class="en">A safe, calm, and confidential space where you can talk about what matters, understand yourself, and gradually restore inner stability.</span>
+        </p>
+      </div>
+      <div class="gallery-image reveal">
+        <img src="assets/atmosphere.webp" alt="Therapy space" />
+      </div>
+      <p class="gallery-caption">
+        <span class="ru">Кабинет — это пространство спокойствия, внимания и&nbsp;бережного диалога.</span>
+        <span class="en">The practice is a space of calm, attention, and&nbsp;respectful dialogue.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHO I HELP
+  ============================================================ -->
+  <section class="section who-help" id="who">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="eyebrow">
+          <span class="ru">Кому я помогаю</span>
+          <span class="en">Who I Help</span>
+        </span>
+        <h2>
+          <span class="ru">Кому я помогаю и как</span>
+          <span class="en">Who I Help — and How</span>
+        </h2>
+        <div class="divider"></div>
+        <p class="lead">
+          <span class="ru">Ко мне обращаются, когда становится трудно справляться в одиночку — и нет сил делать вид, что всё в порядке.</span>
+          <span class="en">People come to me when it becomes hard to cope alone — and there's no energy left to pretend everything is fine.</span>
+        </p>
+      </div>
+      <div class="cards-grid">
+        <div class="card reveal reveal-d1">
+          <span class="card-num">01</span>
+          <h4>
+            <span class="ru">Постоянная тревога и внутреннее напряжение</span>
+            <span class="en">Chronic Anxiety & Inner Tension</span>
+          </h4>
+          <p>
+            <span class="ru">Если вам трудно расслабиться, мысли кружатся по кругу, а тело не даёт покоя — это поле, где мы работаем.</span>
+            <span class="en">If you find it hard to relax, thoughts spin in circles, and your body won't settle — this is where we start.</span>
+          </p>
+        </div>
+        <div class="card reveal reveal-d2">
+          <span class="card-num">02</span>
+          <h4>
+            <span class="ru">Трудности в отношениях</span>
+            <span class="en">Relationship Struggles</span>
+          </h4>
+          <p>
+            <span class="ru">Если в отношениях много боли, конфликты повторяются по кругу, а близость пугает или недоступна — мы будем работать с этим.</span>
+            <span class="en">If your relationships carry a lot of pain, conflicts loop endlessly, and closeness feels frightening or out of reach — we'll work on this together.</span>
+          </p>
+        </div>
+        <div class="card reveal reveal-d3">
+          <span class="card-num">03</span>
+          <h4>
+            <span class="ru">Эмоциональное выгорание</span>
+            <span class="en">Emotional Burnout</span>
+          </h4>
+          <p>
+            <span class="ru">Если больше нет сил, всё раздражает, а мотивация упала на ноль — пора восстановить внутренний ресурс.</span>
+            <span class="en">If you have no energy left, everything irritates you, and motivation has hit zero — it's time to rebuild your inner resources.</span>
+          </p>
+        </div>
+        <div class="card reveal reveal-d4">
+          <span class="card-num">04</span>
+          <h4>
+            <span class="ru">Неуверенность в себе</span>
+            <span class="en">Low Self-Confidence</span>
+          </h4>
+          <p>
+            <span class="ru">Если сложно опираться на себя, легко соглашаться на меньшее и постоянно сомневаться в своих решениях — мы это изменим.</span>
+            <span class="en">If it's hard to rely on yourself, easy to settle for less, and you're constantly second-guessing your decisions — we'll change that.</span>
+          </p>
+        </div>
+        <div class="card reveal reveal-d5">
+          <span class="card-num">05</span>
+          <h4>
+            <span class="ru">Сложный жизненный период</span>
+            <span class="en">A Difficult Life Transition</span>
+          </h4>
+          <p>
+            <span class="ru">Развод, потеря, переезд, смена карьеры. Жизнь меняется — и иногда нужна поддержка, чтобы не потерять себя.</span>
+            <span class="en">Divorce, loss, relocation, a career shift. Life changes — and sometimes you need support to stay grounded.</span>
+          </p>
+        </div>
+        <div class="card reveal reveal-d6">
+          <span class="card-num">06</span>
+          <h4>
+            <span class="ru">Потребность лучше понять себя</span>
+            <span class="en">A Desire to Understand Yourself Better</span>
+          </h4>
+          <p>
+            <span class="ru">Если вы хотите глубже разобраться в своих реакциях, паттернах и в том, почему вы живёте именно так — вы попали по адресу.</span>
+            <span class="en">If you want to explore your reactions, patterns, and why you live the way you do — you've come to the right place.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHAT I WORK WITH
+  ============================================================ -->
+  <section class="section work" id="work">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="eyebrow">
+          <span class="ru">Направления работы</span>
+          <span class="en">Areas of Practice</span>
+        </span>
+        <h2>
+          <span class="ru">Основные направления</span>
+          <span class="en">Core Areas of Practice</span>
+        </h2>
+        <div class="divider"></div>
+      </div>
+      <div class="work-grid">
+        <div class="work-item reveal reveal-d1">
+          <div class="work-num">01</div>
+          <div class="work-text">
+            <h4>
+              <span class="ru">Самооценка и самоценность</span>
+              <span class="en">Self-Esteem & Self-Worth</span>
+            </h4>
+            <p>
+              <span class="ru">Внутренний критик не даёт покоя. Вы постоянно сравниваете себя с другими, боитесь ошибок, откладываете решения. Результат: нереализованный потенциал и хроническая неудовлетворённость собой. Мы разберёмся, откуда это взялось — и как перестать саботировать себя.</span>
+              <span class="en">The inner critic never stops. You constantly compare yourself to others, fear mistakes, delay decisions. Result: unrealised potential and chronic dissatisfaction. We'll figure out where this comes from — and how to stop sabotaging yourself.</span>
+            </p>
+          </div>
+        </div>
+        <div class="work-item reveal reveal-d2">
+          <div class="work-num">02</div>
+          <div class="work-text">
+            <h4>
+              <span class="ru">Тревога и травма</span>
+              <span class="en">Anxiety & Trauma</span>
+            </h4>
+            <p>
+              <span class="ru">Тревога, которая не отпускает даже ночью. Паника, которая приходит без предупреждения. Последствия травмы, которые определяют ваши реакции. Цель — не просто успокоиться, а вернуть себе ощущение безопасности и контроля.</span>
+              <span class="en">Anxiety that doesn't let go, even at night. Panic that arrives without warning. Trauma responses that dictate your reactions. The goal is not just to calm down — but to restore your sense of safety and control.</span>
+            </p>
+          </div>
+        </div>
+        <div class="work-item reveal reveal-d3">
+          <div class="work-num">03</div>
+          <div class="work-text">
+            <h4>
+              <span class="ru">Отношения и коммуникация</span>
+              <span class="en">Relationships & Communication</span>
+            </h4>
+            <p>
+              <span class="ru">Вы повторяете одни и те же конфликты, не можете сказать «нет», боитесь близости или, наоборот, цепляетесь за отношения, которые давно не работают. Мы найдём корень паттерна — и построим новый способ быть в отношениях.</span>
+              <span class="en">You repeat the same conflicts, can't say no, fear intimacy — or cling to relationships that stopped working long ago. We'll find the root of the pattern — and build a new way of being with others.</span>
+            </p>
+          </div>
+        </div>
+        <div class="work-item reveal reveal-d4">
+          <div class="work-num">04</div>
+          <div class="work-text">
+            <h4>
+              <span class="ru">Выгорание и поиск себя</span>
+              <span class="en">Burnout & Finding Yourself</span>
+            </h4>
+            <p>
+              <span class="ru">Энергия на нуле. Ничего не хочется. Будущее кажется размытым. Вы не знаете, чего хотите — и злитесь на себя за это. Задача — не вернуть вас в прежний темп, а помочь понять, что действительно важно — и как жить в согласии с собой.</span>
+              <span class="en">Energy at zero. You don't want anything. The future feels blurred. You don't know what you want — and resent yourself for it. The task is not to return you to your old pace, but to help you understand what's truly important — and how to live in harmony with yourself.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       APPROACH — 2-column: text left, image right
+  ============================================================ -->
+  <section class="section approach" id="approach">
+    <div class="container">
+      <div class="approach-inner">
+        <div class="approach-left reveal">
+          <span class="eyebrow">
+            <span class="ru">Как проходит работа</span>
+            <span class="en">How It Works</span>
+          </span>
+          <h2>
+            <span class="ru">Как проходит наша работа</span>
+            <span class="en">How We Work Together</span>
+          </h2>
+          <div class="divider"></div>
+          <blockquote class="approach-quote">
+            <span class="ru">«Психотерапия — это не советы и не волшебные таблетки. Это пространство, в котором вы начинаете понимать себя — и меняться.»</span>
+            <span class="en">"Psychotherapy is not advice and not magic pills. It is a space where you begin to understand yourself — and change."</span>
+          </blockquote>
+          <div class="approach-steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div>
+                <h4>
+                  <span class="ru">Бесплатная 15-минутная консультация</span>
+                  <span class="en">Free 15-Minute Consultation</span>
+                </h4>
+                <p>
+                  <span class="ru">Созвон, на котором мы познакомимся, вы поговорите о своём запросе и поймёте, подходим ли мы друг другу. Без обязательств.</span>
+                  <span class="en">A call where we get acquainted, you talk about your request, and we both see if we're a good fit. No obligations.</span>
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div>
+                <h4>
+                  <span class="ru">Знакомство и исследование запроса</span>
+                  <span class="en">Getting to Know Each Other & Exploring Your Request</span>
+                </h4>
+                <p>
+                  <span class="ru">На первых сессиях мы разбираемся, что именно вас беспокоит, как это проявляется в жизни и что изменилось бы, если бы проблемы не было.</span>
+                  <span class="en">In the first few sessions, we explore exactly what's bothering you, how it shows up in your life, and what would be different if the problem weren't there.</span>
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div>
+                <h4>
+                  <span class="ru">Регулярная работа</span>
+                  <span class="en">Regular Sessions</span>
+                </h4>
+                <p>
+                  <span class="ru">Мы ищем корни повторяющихся паттернов, работаем с травмами и убеждениями, учимся новым способам реагировать. Каждая сессия приближает вас к ясности.</span>
+                  <span class="en">We look for the roots of recurring patterns, work with traumas and beliefs, and learn new ways of responding. Each session brings you closer to clarity.</span>
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div>
+                <h4>
+                  <span class="ru">Завершение и удержание результата</span>
+                  <span class="en">Finishing & Holding the Result</span>
+                </h4>
+                <p>
+                  <span class="ru">Когда вы чувствуете, что получили то, за чем пришли — мы завершаем активную работу. При необходимости остаёмся на связи для поддержки.</span>
+                  <span class="en">When you feel you've gotten what you came for, we wrap up the active work. If needed, we stay in touch for ongoing support.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="approach-image reveal reveal-d1">
+          <img src="assets/with-client-1.webp" alt="Therapy session" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="eyebrow">
+          <span class="ru">Отзывы</span>
+          <span class="en">Testimonials</span>
+        </span>
+        <h2>
+          <span class="ru">Что говорят клиенты</span>
+          <span class="en">What Clients Say</span>
+        </h2>
+        <div class="divider"></div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal reveal-d1">
+          <span class="testi-quote-mark">"</span>
+          <p>
+            <span class="ru">Я пришла к Оксане в момент, когда казалось, что всё разваливается — карьера, отношения, вера в себя. Через восемь месяцев я не узнаю тот страх, который жил внутри. Он стал тише. Я научилась с ним разговаривать.</span>
+            <span class="en">I came to Oksana when it felt like everything was falling apart — my career, relationships, self-belief. Eight months later, I don't recognise that fear that used to live inside me. It's quieter now. I've learned to talk to it.</span>
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">А</div>
+            <div>
+              <div class="testi-name">Анна</div>
+              <div class="testi-role">
+                <span class="ru">34 года, Москва</span>
+                <span class="en">34 y.o., Moscow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal reveal-d2">
+          <span class="testi-quote-mark">"</span>
+          <p>
+            <span class="ru">Долго не решалась пойти к психологу — думала, что это для «совсем серьёзных» случаев. Оказалось, что это про то, чтобы наконец перестать крутить одни и те же круги и начать жить по-своему.</span>
+            <span class="en">I hesitated for a long time before seeing a psychologist — I thought it was only for "really serious" cases. It turned out to be about finally stopping the same old cycles and starting to live on my own terms.</span>
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">Е</div>
+            <div>
+              <div class="testi-name">Екатерина</div>
+              <div class="testi-role">
+                <span class="ru">29 лет, Санкт-Петербург</span>
+                <span class="en">29 y.o., Saint Petersburg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal reveal-d3">
+          <span class="testi-quote-mark">"</span>
+          <p>
+            <span class="ru">После развода я думала, что потеряла часть себя. Оксана помогла мне перестать искать причину в себе — и увидеть, что я не сломана. Мне просто нужно было пространство, чтобы это проговорить.</span>
+            <span class="en">After my divorce, I thought I'd lost part of myself. Oksana helped me stop looking for the problem inside me — and see that I'm not broken. I just needed a space to say it out loud.</span>
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">М</div>
+            <div>
+              <div class="testi-name">Мария</div>
+              <div class="testi-role">
+                <span class="ru">41 год, Казань</span>
+                <span class="en">41 y.o., Kazan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <span class="eyebrow" style="color: var(--gold-light);">
+            <span class="ru">Контакты</span>
+            <span class="en">Contact</span>
+          </span>
+          <h2>
+            <span class="ru">Запишитесь на консультацию</span>
+            <span class="en">Book a Consultation</span>
+          </h2>
+          <div class="divider"></div>
+          <p class="lead">
+            <span class="ru">Запишитесь на первую консультацию — и мы начнём разбираться вместе. Это может изменить больше, чем вы ожидаете.</span>
+            <span class="en">Book your first consultation — and we'll start figuring it out together. It may change more than you expect.</span>
+          </p>
+          <div class="contact-reassurance">
+            <div class="contact-reassurance-item">
+              <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <span class="ru">Всё конфиденциально — кодекс этики психолога</span>
+              <span class="en">Everything is confidential — psychologist's code of ethics</span>
+            </div>
+            <div class="contact-reassurance-item">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span class="ru">Отвечаю в течение 24 часов</span>
+              <span class="en">I respond within 24 hours</span>
+            </div>
+            <div class="contact-reassurance-item">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="ru">Очно: Москва · Онлайн: по всему миру</span>
+              <span class="en">In-person: Moscow · Online: worldwide</span>
+            </div>
+            <div class="contact-reassurance-item">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span class="ru">Первая консультация — без обязательств</span>
+              <span class="en">First consultation — no obligations</span>
+            </div>
+          </div>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.22 4.18 2 2 0 012.22 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">
+                  <span class="ru">Телефон</span>
+                  <span class="en">Phone</span>
+                </span>
+                <span class="contact-item-value">+7 (999) 123-45-67</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">Email</span>
+                <span class="contact-item-value">hello@oksana-psycholog.ru</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <span class="contact-item-label">
+                  <span class="ru">Адрес</span>
+                  <span class="en">Location</span>
+                </span>
+                <span class="contact-item-value">
+                  <span class="ru">Москва / Онлайн по всему миру</span>
+                  <span class="en">Moscow / Online worldwide</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal reveal-d2" id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>
+                <span class="ru">Ваше имя</span>
+                <span class="en">Your Name</span>
+              </label>
+              <input type="text" placeholder="Алексей / Alex" required />
+            </div>
+            <div class="form-group">
+              <label>
+                <span class="ru">Телефон или Email</span>
+                <span class="en">Phone or Email</span>
+              </label>
+              <input type="text" placeholder="+7 / @telegram" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>
+              <span class="ru">Тема консультации</span>
+              <span class="en">Consultation Topic</span>
+            </label>
+            <select required>
+              <option value="" disabled selected>Выберите тему</option>
+              <option value="anxiety">Тревога и внутреннее напряжение</option>
+              <option value="relationships">Трудности в отношениях</option>
+              <option value="burnout">Эмоциональное выгорание</option>
+              <option value="confidence">Неуверенность в себе</option>
+              <option value="transition">Сложный жизненный период</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>
+              <span class="ru">Сообщение</span>
+              <span class="en">Message</span>
+            </label>
+            <textarea placeholder="Расскажите коротко о вашем запросе / Briefly describe your request"></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <span class="ru">Отправить заявку</span>
+            <span class="en">Send Request</span>
+          </button>
+          <p class="form-note">
+            <span class="ru">Нажимая кнопку, вы соглашаетесь на обработку персональных данных в соответствии с политикой конфиденциальности.</span>
+            <span class="en">By submitting, you agree to the processing of personal data in accordance with the privacy policy.</span>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BOOKING MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <span class="modal-eyebrow">
+        <span class="ru">Первая консультация</span>
+        <span class="en">First Consultation</span>
+      </span>
+      <h3 id="modalTitle">
+        <span class="ru">Запишитесь на консультацию</span>
+        <span class="en">Book a Consultation</span>
+      </h3>
+      <p class="modal-lead">
+        <span class="ru">Оставьте заявку — и я свяжусь с вами в течение 24 часов, чтобы обсудить ваш запрос.</span>
+        <span class="en">Leave a request and I'll reach out within 24 hours to discuss your needs.</span>
+      </p>
+      <form class="modal-form" id="modalForm" onsubmit="handleModalSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>
+              <span class="ru">Ваше имя</span>
+              <span class="en">Your Name</span>
+            </label>
+            <input type="text" placeholder="Алексей / Alex" required />
+          </div>
+          <div class="form-group">
+            <label>
+              <span class="ru">Телефон или Email</span>
+              <span class="en">Phone or Email</span>
+            </label>
+            <input type="text" placeholder="+7 / @telegram" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="ru">Тема консультации</span>
+            <span class="en">Consultation Topic</span>
+          </label>
+          <select required>
+            <option value="" selected disabled>Выберите тему</option>
+            <option value="anxiety">Тревога и внутреннее напряжение</option>
+            <option value="relationships">Трудности в отношениях</option>
+            <option value="burnout">Эмоциональное выгорание</option>
+            <option value="confidence">Неуверенность в себе</option>
+            <option value="transition">Сложный жизненный период</option>
+            <option value="other">Другое</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>
+            <span class="ru">Сообщение</span>
+            <span class="en">Message</span>
+          </label>
+          <textarea placeholder="Расскажите коротко о вашем запросе / Briefly describe your request"></textarea>
+        </div>
+        <button type="submit" class="modal-submit">
+          <span class="ru">Отправить заявку</span>
+          <span class="en">Send Request</span>
+        </button>
+        <p class="modal-note">
+          <span class="ru">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</span>
+          <span class="en">By submitting, you agree to the processing of personal data.</span>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-name">Oksana Ivanova</span>
+      <span class="footer-copy">© 2025 Oksana Ivanova. <span class="ru">Все права защищены.</span><span class="en">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="#hero"><span class="ru">Главная</span><span class="en">Home</span></a>
+        <a href="#about"><span class="ru">Обо мне</span><span class="en">About</span></a>
+        <a href="#work"><span class="ru">Направления</span><span class="en">Practice</span></a>
+        <a href="#testimonials"><span class="ru">Отзывы</span><span class="en">Testimonials</span></a>
+        <a href="#contact"><span class="ru">Контакты</span><span class="en">Contact</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script src="script.js"></script>
+</body>
+</html>
