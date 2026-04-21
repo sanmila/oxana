@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Блог — Оксана Иванова, клинический психолог</title>
+  <meta name="description" content="Статьи о психологии, тревоге, отношениях и внутреннем росте от клинического психолога Оксаны Ивановой."/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@0,300;0,400;0,500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .page-hero{background:#1c1917;padding:9rem 0 5rem;text-align:center;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,.08) 0%,transparent 65%);pointer-events:none}
+    .page-hero .eyebrow{color:var(--gold-light)}
+    .page-hero h1{font-family:var(--font-serif);font-size:clamp(2.6rem,5vw,4rem);font-weight:300;color:#fff;letter-spacing:-.02em;margin-bottom:1rem}
+    .page-hero p{font-family:var(--font-serif);font-size:1.1rem;font-style:italic;color:rgba(250,248,243,.45);max-width:460px;margin:0 auto}
+    .back-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;letter-spacing:.06em;color:var(--gold-light);margin-bottom:2rem;opacity:.8;transition:opacity .3s}
+    .back-link:hover{opacity:1}
+    .blog-section{background:var(--bg);padding:var(--section-py) 0}
+    .blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:3.5rem}
+    .article-card{background:var(--surface);border-radius:var(--radius-lg);border:1px solid var(--divider);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
+    .article-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+    .article-card-top{padding:2.5rem 2.5rem 0}
+    .article-num{font-family:var(--font-serif);font-size:.9rem;font-weight:700;color:var(--gold);opacity:.7;letter-spacing:.08em;margin-bottom:1.2rem;display:block}
+    .article-card h3{font-family:var(--font-serif);font-size:1.5rem;font-weight:500;line-height:1.25;color:var(--text);margin-bottom:1rem;letter-spacing:-.01em}
+    .article-card .excerpt{font-size:.95rem;color:var(--text-soft);line-height:1.8;margin-bottom:0}
+    .article-card-divider{height:1px;background:var(--divider);margin:2rem 2.5rem 0}
+    .article-body{padding:1.8rem 2.5rem 2.5rem;flex:1;display:flex;flex-direction:column;gap:.5rem}
+    .article-point{display:flex;gap:.8rem;align-items:flex-start}
+    .article-point-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.65rem}
+    .article-point p{font-size:.88rem;color:var(--text-soft);line-height:1.7;margin:0}
+    .article-card-footer{padding:0 2.5rem 2.5rem;margin-top:auto}
+    .article-tag{display:inline-block;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);background:var(--gold-pale);padding:.3rem .9rem;border-radius:100px}
+    .blog-cta{text-align:center;padding:5rem 0 0;margin-top:5rem;border-top:1px solid var(--divider)}
+    .blog-cta h3{font-family:var(--font-serif);font-size:clamp(1.6rem,2.5vw,2.2rem);margin-bottom:.8rem}
+    .blog-cta p{font-family:var(--font-serif);font-style:italic;color:var(--text-soft);margin-bottom:2rem}
+    .btn-gold{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:#fff;padding:1rem 2.4rem;border-radius:var(--radius-pill);font-size:.88rem;letter-spacing:.04em;transition:all .35s;box-shadow:0 4px 24px rgba(168,132,74,.35);font-family:var(--font-sans)}
+    .btn-gold:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 10px 36px rgba(168,132,74,.45)}
+    @media(max-width:900px){.blog-grid{grid-template-columns:1fr}}
+    @media(max-width:600px){.container{padding:0 1.5rem}.page-hero{padding:7rem 0 3rem}.article-card-top,.article-body,.article-card-footer{padding-left:1.8rem;padding-right:1.8rem}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo"><span class="ru">Оксана Иванова</span><span class="en">Oksana Ivanova</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about"><span class="ru">Обо мне</span><span class="en">About</span></a></li>
+        <li><a href="index.html#who"><span class="ru">Кому помогаю</span><span class="en">Who I Help</span></a></li>
+        <li><a href="index.html#work"><span class="ru">С чем работаю</span><span class="en">What I Work With</span></a></li>
+        <li><a href="certificates.html"><span class="ru">Дипломы</span><span class="en">Credentials</span></a></li>
+        <li><a href="blog.html"><span class="ru">Блог</span><span class="en">Blog</span></a></li>
+        <li><a href="index.html#contact"><span class="ru">Контакты</span><span class="en">Contact</span></a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language"><span class="lang-ru">EN</span><span class="lang-en-label">RU</span></button>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="index.html#about" class="mobile-link"><span class="ru">Обо мне</span><span class="en">About</span></a>
+    <a href="index.html#who" class="mobile-link"><span class="ru">Кому помогаю</span><span class="en">Who I Help</span></a>
+    <a href="index.html#work" class="mobile-link"><span class="ru">С чем работаю</span><span class="en">What I Work With</span></a>
+    <a href="certificates.html" class="mobile-link"><span class="ru">Дипломы</span><span class="en">Credentials</span></a>
+    <a href="blog.html" class="mobile-link"><span class="ru">Блог</span><span class="en">Blog</span></a>
+    <a href="index.html#contact" class="mobile-link"><span class="ru">Контакты</span><span class="en">Contact</span></a>
+    <button class="lang-toggle" id="langToggleMobile"><span class="lang-ru">EN</span><span class="lang-en-label">RU</span></button>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <a href="index.html" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <span class="ru">На главную</span><span class="en">Back to Home</span>
+      </a>
+      <span class="eyebrow"><span class="ru">Психология в жизни</span><span class="en">Psychology in Life</span></span>
+      <h1><span class="ru">Блог</span><span class="en">Blog</span></h1>
+      <p><span class="ru">Честно о том, что происходит внутри — и как с этим работать.</span><span class="en">Honestly about what happens inside — and how to work with it.</span></p>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="section-label reveal">
+        <span class="eyebrow"><span class="ru">Статьи</span><span class="en">Articles</span></span>
+        <h2><span class="ru">Читайте и узнавайте себя</span><span class="en">Read and Recognise Yourself</span></h2>
+        <div class="divider" style="margin:1.4rem auto 0"></div>
+      </div>
+
+      <div class="blog-grid">
+
+        <!-- Article 1 -->
+        <div class="article-card reveal reveal-d1">
+          <div class="article-card-top">
+            <span class="article-num">01</span>
+            <h3><span class="ru">Знаю, как действовать. Но не делаю. Почему?</span><span class="en">I Know What to Do. But I Don't. Why?</span></h3>
+            <p class="excerpt"><span class="ru">«Понимаю, что нужно делать — но не могу начать.» Разбираем 10 причин, которые держат нас в бездействии.</span><span class="en">"I know what to do — but can't start." We break down 10 reasons that keep us stuck.</span></p>
+          </div>
+          <div class="article-card-divider"></div>
+          <div class="article-body">
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>1. Страх неудачи.</strong> Страх ошибиться бывает сильнее желания успеха. Переосмыслите неудачу — каждая ошибка приближает к цели.</span><span class="en"><strong>1. Fear of failure.</strong> Fear of mistakes can outweigh desire for success. Reframe failure — every mistake brings you closer.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>2. Перфекционизм.</strong> Ждём идеального момента — он не наступит. Начните с несовершенного первого шага.</span><span class="en"><strong>2. Perfectionism.</strong> The perfect moment won't come. Start with an imperfect first step.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>3. Масштаб задачи.</strong> Большая цель парализует. Разбейте на маленькие конкретные шаги и фокусируйтесь на одном.</span><span class="en"><strong>3. Overwhelming scale.</strong> Big goals paralyse. Break them into small concrete steps and focus on one.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>4. Недостаток мотивации.</strong> Свяжите действие с вашими глубинными ценностями — с жизнью, которой вы хотите жить.</span><span class="en"><strong>4. Lack of motivation.</strong> Connect the action to your core values — to the life you want to live.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>5. Прокрастинация как защита.</strong> Откладывание защищает от дискомфорта перемен. Примите: дискомфорт — часть роста.</span><span class="en"><strong>5. Procrastination as shield.</strong> Delay protects us from discomfort. Accept: discomfort is part of growth.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>6. Недостаток энергии.</strong> Физическое или эмоциональное истощение блокирует действие. Сон, питание, движение — фундамент.</span><span class="en"><strong>6. Low energy.</strong> Physical or emotional exhaustion blocks action. Sleep, food, movement — the foundation.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>7. Внутренние конфликты.</strong> Часть нас хочет действовать, другая — сопротивляется. Выпишите «за» и «против» и найдите глубинную потребность за сопротивлением.</span><span class="en"><strong>7. Inner conflict.</strong> Part of us wants to act, another resists. Write out pros/cons and find the need behind the resistance.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>8. Недостаток навыков.</strong> Страх показаться некомпетентным останавливает. Учиться в процессе — это нормально.</span><span class="en"><strong>8. Skill gap.</strong> Fear of incompetence stops us. Learning on the go is completely normal.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>9. Внешние факторы.</strong> Иногда препятствия реальны. Разберитесь: что в вашей власти, а к чему нужно адаптироваться.</span><span class="en"><strong>9. External obstacles.</strong> Sometimes barriers are real. Clarify: what can you change vs. adapt to.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>10. Неверие в результат.</strong> Ищите доказательства, что выбранный путь работает. Общайтесь с теми, кто уже достиг похожих целей.</span><span class="en"><strong>10. Disbelief in results.</strong> Find evidence the path works. Talk to those who've already reached similar goals.</span></p></div>
+          </div>
+          <div class="article-card-footer">
+            <span class="article-tag"><span class="ru">Мотивация</span><span class="en">Motivation</span></span>
+          </div>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article-card reveal reveal-d2">
+          <div class="article-card-top">
+            <span class="article-num">02</span>
+            <h3><span class="ru">И жили они долго и счастливо… Но как именно?</span><span class="en">And They Lived Happily Ever After… But How?</span></h3>
+            <p class="excerpt"><span class="ru">Большинство пар расстаются на 3-м этапе из шести — считая, что любовь прошла. Но впереди ещё три, более глубоких.</span><span class="en">Most couples separate at stage 3 of 6 — thinking love is over. But three deeper stages still lie ahead.</span></p>
+          </div>
+          <div class="article-card-divider"></div>
+          <div class="article-body">
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 1 — Медовый месяц.</strong> Идеализация и эйфория. Не торопитесь с серьёзными решениями — наблюдайте за партнёром в стрессе и конфликтах.</span><span class="en"><strong>Stage 1 — Honeymoon.</strong> Idealisation and euphoria. Don't rush into big decisions — observe your partner under stress.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 2 — Реальность.</strong> Иллюзии уходят, проявляется настоящий человек. Обсуждайте различия открыто, без обвинений.</span><span class="en"><strong>Stage 2 — Reality.</strong> Illusions fade. Discuss differences openly, without blame.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 3 — Кризис.</strong> Активируются старые травмы. Большинство пар расстаются здесь — не зная, что впереди три более глубоких этапа. Именно здесь терапия наиболее эффективна.</span><span class="en"><strong>Stage 3 — Crisis.</strong> Old wounds surface. Most couples split here — unaware three deeper stages lie ahead. Therapy is most effective at this point.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 4 — Настройка.</strong> Партнёры начинают понимать эмоциональный мир друг друга. Конфликты становятся менее разрушительными.</span><span class="en"><strong>Stage 4 — Attunement.</strong> Partners start understanding each other's emotional world. Conflicts become less destructive.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 5 — Партнёрство.</strong> Отношения становятся опорой, а не тревогой. Уважение важнее первоначальной страсти.</span><span class="en"><strong>Stage 5 — Partnership.</strong> The relationship becomes a foundation, not a source of anxiety. Respect matters more than passion.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 6 — Глубокая любовь.</strong> Зрелая привязанность. Вы видели друг друга в самых уязвимых состояниях — и выбрали остаться.</span><span class="en"><strong>Stage 6 — Deep love.</strong> Mature attachment. You've seen each other at your most vulnerable — and chose to stay.</span></p></div>
+          </div>
+          <div class="article-card-footer">
+            <span class="article-tag"><span class="ru">Отношения</span><span class="en">Relationships</span></span>
+          </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="article-card reveal reveal-d3">
+          <div class="article-card-top">
+            <span class="article-num">03</span>
+            <h3><span class="ru">Тихая агрессия: как мы наказываем себя, не замечая этого</span><span class="en">Silent Aggression: How We Punish Ourselves Without Noticing</span></h3>
+            <p class="excerpt"><span class="ru">Самонаказание не всегда выглядит как самонаказание. Иногда это просто «обычные привычки».</span><span class="en">Self-punishment doesn't always look like self-punishment. Sometimes it's just "normal habits."</span></p>
+          </div>
+          <div class="article-card-divider"></div>
+          <div class="article-body">
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Прокрастинация.</strong> Откладывание — не лень, а форма саботажа. Психика защищается от дискомфорта перемен.</span><span class="en"><strong>Procrastination.</strong> Not laziness — a form of sabotage. The psyche protects itself from the discomfort of change.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Отказ от отдыха.</strong> Убеждение «я не заслуживаю» — родом из детства, не из реальности.</span><span class="en"><strong>Refusing rest.</strong> "I don't deserve it" is a childhood belief, not reality.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Чрезмерная занятость.</strong> Не оставляем себе времени на себя — это тоже форма самонаказания.</span><span class="en"><strong>Chronic busyness.</strong> Leaving no time for yourself is also a form of self-punishment.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Самообесценивание.</strong> Постоянные «шутки» о себе — способ наказывать себя социально приемлемо.</span><span class="en"><strong>Self-deprecation.</strong> Constant jokes at your own expense are a socially acceptable way to punish yourself.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Страх успеха.</strong> Мы срываем планы, чтобы подтвердить: «у меня ничего не получается». Страх ответственности реальнее страха неудачи.</span><span class="en"><strong>Fear of success.</strong> We sabotage plans to confirm "I can't do it." Fear of responsibility is often greater than fear of failure.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Вина за радость.</strong> Ощущение, что счастье нужно заслужить — мешает принимать хорошее в жизни.</span><span class="en"><strong>Guilt over joy.</strong> Feeling that happiness must be earned — blocks you from accepting good things.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Страх наказания.</strong> Ожидание негативных последствий становится самосбывающимся пророчеством — мы неосознанно провоцируем то, чего боимся.</span><span class="en"><strong>Fear of punishment.</strong> Expecting negative consequences becomes self-fulfilling — we unconsciously provoke what we fear.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Внутренний критик.</strong> Обесценивает достижения, фокусируется на ошибках, сравнивает с недостижимым идеалом. Его можно перенастроить.</span><span class="en"><strong>Inner critic.</strong> Dismisses achievements, focuses on mistakes, compares you to an impossible ideal. It can be retrained.</span></p></div>
+          </div>
+          <div class="article-card-footer">
+            <span class="article-tag"><span class="ru">Самопознание</span><span class="en">Self-Awareness</span></span>
+          </div>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="article-card reveal reveal-d4">
+          <div class="article-card-top">
+            <span class="article-num">04</span>
+            <h3><span class="ru">Как устроена терапия: что происходит на сессиях</span><span class="en">How Therapy Works: What Happens in Sessions</span></h3>
+            <p class="excerpt"><span class="ru">«А что мы вообще будем делать?» — Разбираю свою внутреннюю кухню на реальном примере.</span><span class="en">"So what exactly will we do?" — I break down my method using a real client case.</span></p>
+          </div>
+          <div class="article-card-divider"></div>
+          <div class="article-body">
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>1. Мысли.</strong> Разделяем факты и интерпретации. «Муж сел в телефон» — факт. «Ему на меня наплевать» — установка. Затем через ДПДГ или когнитивное разделение закрепляем новую, здоровую установку.</span><span class="en"><strong>1. Thoughts.</strong> Facts vs. interpretations. "Husband on his phone" — fact. "He doesn't care" — belief. We replace the belief using EMDR or cognitive defusion.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>2. Чувства.</strong> Называем злость, обиду, стыд. Оцениваем по шкале 0–10. Ищем нарушенные потребности и их корни в прошлом опыте — часто через технику «Кинофильм».</span><span class="en"><strong>2. Feelings.</strong> We name anger, hurt, shame and rate intensity 0–10. We find violated needs and trace their roots in the past using the "Film" technique.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>3. Тело.</strong> Находим, где живёт эмоция: в груди, животе, горле. Работаем с ДПДГ, дыханием, заземлением, ТЭС или психокатализом. Злость на 9 баллов снижается до 3–4.</span><span class="en"><strong>3. Body.</strong> We locate the emotion — chest, stomach, throat. We use EMDR, breathing, grounding, EFT, or psychocatalysis. Anger at 9 drops to 3–4.</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>4. Сценарии.</strong> Смотрим на поведение: помогает ли оно в долгосрочной перспективе? Разбираем треугольник Карпмана — кто говорит: Внутренний ребёнок, Родитель или Взрослый?</span><span class="en"><strong>4. Patterns.</strong> Does the behaviour help long-term? We examine the Karpman triangle — who is speaking: the Inner Child, Parent, or Adult?</span></p></div>
+            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>5. Действия.</strong> Переносим внутреннюю работу наружу. Репетируем ассертивную фразу: «Мне важно, чтобы мы готовили ужин вместе. Ты можешь отложить телефон на 30 минут?» — вместо крика или молчания.</span><span class="en"><strong>5. Actions.</strong> We take the inner work into real life. We rehearse an assertive request: "I need us to cook dinner together. Can you put your phone down for 30 minutes?" — instead of shouting or silence.</span></p></div>
+          </div>
+          <div class="article-card-footer">
+            <span class="article-tag"><span class="ru">О терапии</span><span class="en">About Therapy</span></span>
+          </div>
+        </div>
+
+      </div><!-- /blog-grid -->
+
+      <div class="blog-cta reveal">
+        <h3><span class="ru">Узнали себя в одной из статей?</span><span class="en">Did you recognise yourself in one of these?</span></h3>
+        <p><span class="ru">Это хороший знак. Записывайтесь — разберёмся вместе.</span><span class="en">That's a good sign. Book a session — we'll figure it out together.</span></p>
+        <a href="index.html#contact" class="btn-gold">
+          <span class="ru">Записаться на консультацию</span><span class="en">Book a Consultation</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-name"><span class="ru">Оксана Иванова</span><span class="en">Oksana Ivanova</span></span>
+      <span class="footer-copy">© 2025 <span class="ru">Оксана Иванова</span><span class="en">Oksana Ivanova</span>. <span class="ru">Все права защищены.</span><span class="en">All rights reserved.</span></span>
+      <div class="footer-links">
+        <a href="index.html"><span class="ru">Главная</span><span class="en">Home</span></a>
+        <a href="certificates.html"><span class="ru">Дипломы</span><span class="en">Credentials</span></a>
+        <a href="blog.html"><span class="ru">Блог</span><span class="en">Blog</span></a>
+        <a href="index.html#contact"><span class="ru">Контакты</span><span class="en">Contact</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+    (function(){const s=localStorage.getItem('oksana-lang');if(s==='en')document.body.classList.add('lang-en');})();
+    function toggleLang(){const e=document.body.classList.toggle('lang-en');localStorage.setItem('oksana-lang',e?'en':'ru');}
+    document.getElementById('langToggle').addEventListener('click',toggleLang);
+    document.getElementById('langToggleMobile').addEventListener('click',toggleLang);
+    const navToggle=document.getElementById('navToggle'),mobileMenu=document.getElementById('mobileMenu'),mobileClose=document.getElementById('mobileClose');
+    navToggle.addEventListener('click',()=>{mobileMenu.classList.toggle('open');navToggle.classList.toggle('active');document.body.classList.toggle('menu-open');});
+    mobileClose.addEventListener('click',()=>{mobileMenu.classList.remove('open');navToggle.classList.remove('active');document.body.classList.remove('menu-open');});
+    document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');navToggle.classList.remove('active');document.body.classList.remove('menu-open');}));
+    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>
