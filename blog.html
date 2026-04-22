@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@0,300;0,400;0,500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
   <style>
+    /* ── Page Hero ── */
     .page-hero{background:#1c1917;padding:9rem 0 5rem;text-align:center;position:relative;overflow:hidden}
     .page-hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,169,110,.08) 0%,transparent 65%);pointer-events:none}
     .page-hero .eyebrow{color:var(--gold-light)}
@@ -18,28 +19,78 @@
     .page-hero p{font-family:var(--font-serif);font-size:1.1rem;font-style:italic;color:rgba(250,248,243,.45);max-width:460px;margin:0 auto}
     .back-link{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;letter-spacing:.06em;color:var(--gold-light);margin-bottom:2rem;opacity:.8;transition:opacity .3s}
     .back-link:hover{opacity:1}
+
+    /* ── Blog Section ── */
     .blog-section{background:var(--bg);padding:var(--section-py) 0}
+
+    /* ── Grid ── */
     .blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:3.5rem}
+
+    /* ── Article Card ── */
     .article-card{background:var(--surface);border-radius:var(--radius-lg);border:1px solid var(--divider);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
-    .article-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
-    .article-card-top{padding:2.5rem 2.5rem 0}
-    .article-num{font-family:var(--font-serif);font-size:.9rem;font-weight:700;color:var(--gold);opacity:.7;letter-spacing:.08em;margin-bottom:1.2rem;display:block}
-    .article-card h3{font-family:var(--font-serif);font-size:1.5rem;font-weight:500;line-height:1.25;color:var(--text);margin-bottom:1rem;letter-spacing:-.01em}
-    .article-card .excerpt{font-size:.95rem;color:var(--text-soft);line-height:1.8;margin-bottom:0}
-    .article-card-divider{height:1px;background:var(--divider);margin:2rem 2.5rem 0}
-    .article-body{padding:1.8rem 2.5rem 2.5rem;flex:1;display:flex;flex-direction:column;gap:.5rem}
+    .article-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+
+    /* ── Card Visual (image or gradient) ── */
+    .card-visual{width:100%;aspect-ratio:16/7;position:relative;overflow:hidden;flex-shrink:0}
+    .card-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+    .article-card:hover .card-visual img{transform:scale(1.04)}
+
+    /* Gradient fallbacks */
+    .card-visual.grad-gold{background:linear-gradient(135deg,#2a2015 0%,#3d2e10 40%,#c8a96e22 100%)}
+    .card-visual.grad-sage{background:linear-gradient(135deg,#131e18 0%,#1e3028 40%,#5a9e7522 100%)}
+    .card-visual.grad-rose{background:linear-gradient(135deg,#1e1318 0%,#2e1a22 40%,#c87a9e22 100%)}
+    .card-visual.grad-slate{background:linear-gradient(135deg,#131520 0%,#1c2035 40%,#6e84c822 100%)}
+    .card-visual.grad-indigo{background:linear-gradient(135deg,#14101e 0%,#1e1835 40%,#8a6ec822 100%)}
+
+    /* Decorative SVG overlay on gradient cards */
+    .card-visual-deco{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+    .card-visual-deco svg{opacity:.18;width:140px;height:140px}
+
+    /* Article number overlay */
+    .card-num{position:absolute;top:1.2rem;left:1.5rem;font-family:var(--font-serif);font-size:2.2rem;font-weight:600;color:rgba(200,169,110,.35);letter-spacing:-.02em;line-height:1}
+    .card-date{position:absolute;top:1.35rem;right:1.5rem;font-family:var(--font-sans);font-size:.72rem;letter-spacing:.1em;color:rgba(250,248,243,.35);text-transform:uppercase}
+
+    /* ── Card Body ── */
+    .article-card-top{padding:2rem 2.2rem 0}
+    .article-card h3{font-family:var(--font-serif);font-size:1.42rem;font-weight:500;line-height:1.25;color:var(--text);margin-bottom:.9rem;letter-spacing:-.01em}
+    .article-card .excerpt{font-size:.93rem;color:var(--text-soft);line-height:1.8;margin-bottom:0}
+    .article-card-divider{height:1px;background:var(--divider);margin:1.8rem 2.2rem 0}
+    .article-body{padding:1.5rem 2.2rem 1.8rem;flex:1;display:flex;flex-direction:column;gap:.45rem}
     .article-point{display:flex;gap:.8rem;align-items:flex-start}
-    .article-point-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.65rem}
-    .article-point p{font-size:.88rem;color:var(--text-soft);line-height:1.7;margin:0}
-    .article-card-footer{padding:0 2.5rem 2.5rem;margin-top:auto}
+    .article-point-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.62rem}
+    .article-point p{font-size:.87rem;color:var(--text-soft);line-height:1.7;margin:0}
+    .article-point p strong{color:var(--text);font-weight:500}
+
+    /* Show max 3 points by default, rest hidden */
+    .article-body .article-point:nth-child(n+4){display:none}
+    .article-body.expanded .article-point:nth-child(n+4){display:flex}
+
+    /* ── Card Footer ── */
+    .article-card-footer{padding:0 2.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:auto}
     .article-tag{display:inline-block;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);background:var(--gold-pale);padding:.3rem .9rem;border-radius:100px}
+    .btn-expand{background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:.78rem;letter-spacing:.06em;color:var(--gold-light);opacity:.7;padding:0;transition:opacity .25s;display:flex;align-items:center;gap:.4rem}
+    .btn-expand:hover{opacity:1}
+    .btn-expand svg{transition:transform .3s}
+    .btn-expand.expanded svg{transform:rotate(180deg)}
+
+    /* ── CTA ── */
     .blog-cta{text-align:center;padding:5rem 0 0;margin-top:5rem;border-top:1px solid var(--divider)}
     .blog-cta h3{font-family:var(--font-serif);font-size:clamp(1.6rem,2.5vw,2.2rem);margin-bottom:.8rem}
     .blog-cta p{font-family:var(--font-serif);font-style:italic;color:var(--text-soft);margin-bottom:2rem}
     .btn-gold{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:#fff;padding:1rem 2.4rem;border-radius:var(--radius-pill);font-size:.88rem;letter-spacing:.04em;transition:all .35s;box-shadow:0 4px 24px rgba(168,132,74,.35);font-family:var(--font-sans)}
     .btn-gold:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 10px 36px rgba(168,132,74,.45)}
+
+    /* ── Empty state ── */
+    .blog-empty{text-align:center;padding:5rem 0;color:var(--text-soft);font-family:var(--font-serif);font-style:italic}
+
+    /* ── Responsive ── */
     @media(max-width:900px){.blog-grid{grid-template-columns:1fr}}
-    @media(max-width:600px){.container{padding:0 1.5rem}.page-hero{padding:7rem 0 3rem}.article-card-top,.article-body,.article-card-footer{padding-left:1.8rem;padding-right:1.8rem}}
+    @media(max-width:600px){
+      .container{padding:0 1.5rem}
+      .page-hero{padding:7rem 0 3rem}
+      .article-card-top,.article-body,.article-card-footer{padding-left:1.6rem;padding-right:1.6rem}
+      .blog-grid{gap:1.5rem}
+    }
   </style>
 </head>
 <body>
@@ -89,102 +140,13 @@
     <div class="container">
       <div class="section-label reveal">
         <span class="eyebrow"><span class="ru">Статьи</span><span class="en">Articles</span></span>
-        <h2><span class="ru">Читайте и узнавайте себя</span><span class="en">Read and Recognise Yourself</span></h2>
+        <h2 id="blogCount"><span class="ru">Читайте и узнавайте себя</span><span class="en">Read and Recognise Yourself</span></h2>
         <div class="divider" style="margin:1.4rem auto 0"></div>
       </div>
 
-      <div class="blog-grid">
-
-        <!-- Article 1 -->
-        <div class="article-card reveal reveal-d1">
-          <div class="article-card-top">
-            <span class="article-num">01</span>
-            <h3><span class="ru">Знаю, как действовать. Но не делаю. Почему?</span><span class="en">I Know What to Do. But I Don't. Why?</span></h3>
-            <p class="excerpt"><span class="ru">«Понимаю, что нужно делать — но не могу начать.» Разбираем 10 причин, которые держат нас в бездействии.</span><span class="en">"I know what to do — but can't start." We break down 10 reasons that keep us stuck.</span></p>
-          </div>
-          <div class="article-card-divider"></div>
-          <div class="article-body">
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>1. Страх неудачи.</strong> Страх ошибиться бывает сильнее желания успеха. Переосмыслите неудачу — каждая ошибка приближает к цели.</span><span class="en"><strong>1. Fear of failure.</strong> Fear of mistakes can outweigh desire for success. Reframe failure — every mistake brings you closer.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>2. Перфекционизм.</strong> Ждём идеального момента — он не наступит. Начните с несовершенного первого шага.</span><span class="en"><strong>2. Perfectionism.</strong> The perfect moment won't come. Start with an imperfect first step.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>3. Масштаб задачи.</strong> Большая цель парализует. Разбейте на маленькие конкретные шаги и фокусируйтесь на одном.</span><span class="en"><strong>3. Overwhelming scale.</strong> Big goals paralyse. Break them into small concrete steps and focus on one.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>4. Недостаток мотивации.</strong> Свяжите действие с вашими глубинными ценностями — с жизнью, которой вы хотите жить.</span><span class="en"><strong>4. Lack of motivation.</strong> Connect the action to your core values — to the life you want to live.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>5. Прокрастинация как защита.</strong> Откладывание защищает от дискомфорта перемен. Примите: дискомфорт — часть роста.</span><span class="en"><strong>5. Procrastination as shield.</strong> Delay protects us from discomfort. Accept: discomfort is part of growth.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>6. Недостаток энергии.</strong> Физическое или эмоциональное истощение блокирует действие. Сон, питание, движение — фундамент.</span><span class="en"><strong>6. Low energy.</strong> Physical or emotional exhaustion blocks action. Sleep, food, movement — the foundation.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>7. Внутренние конфликты.</strong> Часть нас хочет действовать, другая — сопротивляется. Выпишите «за» и «против» и найдите глубинную потребность за сопротивлением.</span><span class="en"><strong>7. Inner conflict.</strong> Part of us wants to act, another resists. Write out pros/cons and find the need behind the resistance.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>8. Недостаток навыков.</strong> Страх показаться некомпетентным останавливает. Учиться в процессе — это нормально.</span><span class="en"><strong>8. Skill gap.</strong> Fear of incompetence stops us. Learning on the go is completely normal.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>9. Внешние факторы.</strong> Иногда препятствия реальны. Разберитесь: что в вашей власти, а к чему нужно адаптироваться.</span><span class="en"><strong>9. External obstacles.</strong> Sometimes barriers are real. Clarify: what can you change vs. adapt to.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>10. Неверие в результат.</strong> Ищите доказательства, что выбранный путь работает. Общайтесь с теми, кто уже достиг похожих целей.</span><span class="en"><strong>10. Disbelief in results.</strong> Find evidence the path works. Talk to those who've already reached similar goals.</span></p></div>
-          </div>
-          <div class="article-card-footer">
-            <span class="article-tag"><span class="ru">Мотивация</span><span class="en">Motivation</span></span>
-          </div>
-        </div>
-
-        <!-- Article 2 -->
-        <div class="article-card reveal reveal-d2">
-          <div class="article-card-top">
-            <span class="article-num">02</span>
-            <h3><span class="ru">И жили они долго и счастливо… Но как именно?</span><span class="en">And They Lived Happily Ever After… But How?</span></h3>
-            <p class="excerpt"><span class="ru">Большинство пар расстаются на 3-м этапе из шести — считая, что любовь прошла. Но впереди ещё три, более глубоких.</span><span class="en">Most couples separate at stage 3 of 6 — thinking love is over. But three deeper stages still lie ahead.</span></p>
-          </div>
-          <div class="article-card-divider"></div>
-          <div class="article-body">
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 1 — Медовый месяц.</strong> Идеализация и эйфория. Не торопитесь с серьёзными решениями — наблюдайте за партнёром в стрессе и конфликтах.</span><span class="en"><strong>Stage 1 — Honeymoon.</strong> Idealisation and euphoria. Don't rush into big decisions — observe your partner under stress.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 2 — Реальность.</strong> Иллюзии уходят, проявляется настоящий человек. Обсуждайте различия открыто, без обвинений.</span><span class="en"><strong>Stage 2 — Reality.</strong> Illusions fade. Discuss differences openly, without blame.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 3 — Кризис.</strong> Активируются старые травмы. Большинство пар расстаются здесь — не зная, что впереди три более глубоких этапа. Именно здесь терапия наиболее эффективна.</span><span class="en"><strong>Stage 3 — Crisis.</strong> Old wounds surface. Most couples split here — unaware three deeper stages lie ahead. Therapy is most effective at this point.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 4 — Настройка.</strong> Партнёры начинают понимать эмоциональный мир друг друга. Конфликты становятся менее разрушительными.</span><span class="en"><strong>Stage 4 — Attunement.</strong> Partners start understanding each other's emotional world. Conflicts become less destructive.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 5 — Партнёрство.</strong> Отношения становятся опорой, а не тревогой. Уважение важнее первоначальной страсти.</span><span class="en"><strong>Stage 5 — Partnership.</strong> The relationship becomes a foundation, not a source of anxiety. Respect matters more than passion.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Этап 6 — Глубокая любовь.</strong> Зрелая привязанность. Вы видели друг друга в самых уязвимых состояниях — и выбрали остаться.</span><span class="en"><strong>Stage 6 — Deep love.</strong> Mature attachment. You've seen each other at your most vulnerable — and chose to stay.</span></p></div>
-          </div>
-          <div class="article-card-footer">
-            <span class="article-tag"><span class="ru">Отношения</span><span class="en">Relationships</span></span>
-          </div>
-        </div>
-
-        <!-- Article 3 -->
-        <div class="article-card reveal reveal-d3">
-          <div class="article-card-top">
-            <span class="article-num">03</span>
-            <h3><span class="ru">Тихая агрессия: как мы наказываем себя, не замечая этого</span><span class="en">Silent Aggression: How We Punish Ourselves Without Noticing</span></h3>
-            <p class="excerpt"><span class="ru">Самонаказание не всегда выглядит как самонаказание. Иногда это просто «обычные привычки».</span><span class="en">Self-punishment doesn't always look like self-punishment. Sometimes it's just "normal habits."</span></p>
-          </div>
-          <div class="article-card-divider"></div>
-          <div class="article-body">
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Прокрастинация.</strong> Откладывание — не лень, а форма саботажа. Психика защищается от дискомфорта перемен.</span><span class="en"><strong>Procrastination.</strong> Not laziness — a form of sabotage. The psyche protects itself from the discomfort of change.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Отказ от отдыха.</strong> Убеждение «я не заслуживаю» — родом из детства, не из реальности.</span><span class="en"><strong>Refusing rest.</strong> "I don't deserve it" is a childhood belief, not reality.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Чрезмерная занятость.</strong> Не оставляем себе времени на себя — это тоже форма самонаказания.</span><span class="en"><strong>Chronic busyness.</strong> Leaving no time for yourself is also a form of self-punishment.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Самообесценивание.</strong> Постоянные «шутки» о себе — способ наказывать себя социально приемлемо.</span><span class="en"><strong>Self-deprecation.</strong> Constant jokes at your own expense are a socially acceptable way to punish yourself.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Страх успеха.</strong> Мы срываем планы, чтобы подтвердить: «у меня ничего не получается». Страх ответственности реальнее страха неудачи.</span><span class="en"><strong>Fear of success.</strong> We sabotage plans to confirm "I can't do it." Fear of responsibility is often greater than fear of failure.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Вина за радость.</strong> Ощущение, что счастье нужно заслужить — мешает принимать хорошее в жизни.</span><span class="en"><strong>Guilt over joy.</strong> Feeling that happiness must be earned — blocks you from accepting good things.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Страх наказания.</strong> Ожидание негативных последствий становится самосбывающимся пророчеством — мы неосознанно провоцируем то, чего боимся.</span><span class="en"><strong>Fear of punishment.</strong> Expecting negative consequences becomes self-fulfilling — we unconsciously provoke what we fear.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>Внутренний критик.</strong> Обесценивает достижения, фокусируется на ошибках, сравнивает с недостижимым идеалом. Его можно перенастроить.</span><span class="en"><strong>Inner critic.</strong> Dismisses achievements, focuses on mistakes, compares you to an impossible ideal. It can be retrained.</span></p></div>
-          </div>
-          <div class="article-card-footer">
-            <span class="article-tag"><span class="ru">Самопознание</span><span class="en">Self-Awareness</span></span>
-          </div>
-        </div>
-
-        <!-- Article 4 -->
-        <div class="article-card reveal reveal-d4">
-          <div class="article-card-top">
-            <span class="article-num">04</span>
-            <h3><span class="ru">Как устроена терапия: что происходит на сессиях</span><span class="en">How Therapy Works: What Happens in Sessions</span></h3>
-            <p class="excerpt"><span class="ru">«А что мы вообще будем делать?» — Разбираю свою внутреннюю кухню на реальном примере.</span><span class="en">"So what exactly will we do?" — I break down my method using a real client case.</span></p>
-          </div>
-          <div class="article-card-divider"></div>
-          <div class="article-body">
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>1. Мысли.</strong> Разделяем факты и интерпретации. «Муж сел в телефон» — факт. «Ему на меня наплевать» — установка. Затем через ДПДГ или когнитивное разделение закрепляем новую, здоровую установку.</span><span class="en"><strong>1. Thoughts.</strong> Facts vs. interpretations. "Husband on his phone" — fact. "He doesn't care" — belief. We replace the belief using EMDR or cognitive defusion.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>2. Чувства.</strong> Называем злость, обиду, стыд. Оцениваем по шкале 0–10. Ищем нарушенные потребности и их корни в прошлом опыте — часто через технику «Кинофильм».</span><span class="en"><strong>2. Feelings.</strong> We name anger, hurt, shame and rate intensity 0–10. We find violated needs and trace their roots in the past using the "Film" technique.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>3. Тело.</strong> Находим, где живёт эмоция: в груди, животе, горле. Работаем с ДПДГ, дыханием, заземлением, ТЭС или психокатализом. Злость на 9 баллов снижается до 3–4.</span><span class="en"><strong>3. Body.</strong> We locate the emotion — chest, stomach, throat. We use EMDR, breathing, grounding, EFT, or psychocatalysis. Anger at 9 drops to 3–4.</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>4. Сценарии.</strong> Смотрим на поведение: помогает ли оно в долгосрочной перспективе? Разбираем треугольник Карпмана — кто говорит: Внутренний ребёнок, Родитель или Взрослый?</span><span class="en"><strong>4. Patterns.</strong> Does the behaviour help long-term? We examine the Karpman triangle — who is speaking: the Inner Child, Parent, or Adult?</span></p></div>
-            <div class="article-point"><div class="article-point-dot"></div><p><span class="ru"><strong>5. Действия.</strong> Переносим внутреннюю работу наружу. Репетируем ассертивную фразу: «Мне важно, чтобы мы готовили ужин вместе. Ты можешь отложить телефон на 30 минут?» — вместо крика или молчания.</span><span class="en"><strong>5. Actions.</strong> We take the inner work into real life. We rehearse an assertive request: "I need us to cook dinner together. Can you put your phone down for 30 minutes?" — instead of shouting or silence.</span></p></div>
-          </div>
-          <div class="article-card-footer">
-            <span class="article-tag"><span class="ru">О терапии</span><span class="en">About Therapy</span></span>
-          </div>
-        </div>
-
-      </div><!-- /blog-grid -->
+      <div class="blog-grid" id="blogGrid">
+        <!-- JS renders cards here -->
+      </div>
 
       <div class="blog-cta reveal">
         <h3><span class="ru">Узнали себя в одной из статей?</span><span class="en">Did you recognise yourself in one of these?</span></h3>
@@ -210,18 +172,199 @@
     </div>
   </footer>
 
+  <!-- Article data index -->
+  <script src="articles/data.js"></script>
+
   <script>
     "use strict";
-    (function(){const s=localStorage.getItem('oksana-lang');if(s==='en')document.body.classList.add('lang-en');})();
-    function toggleLang(){const e=document.body.classList.toggle('lang-en');localStorage.setItem('oksana-lang',e?'en':'ru');}
-    document.getElementById('langToggle').addEventListener('click',toggleLang);
-    document.getElementById('langToggleMobile').addEventListener('click',toggleLang);
-    const navToggle=document.getElementById('navToggle'),mobileMenu=document.getElementById('mobileMenu'),mobileClose=document.getElementById('mobileClose');
-    navToggle.addEventListener('click',()=>{mobileMenu.classList.toggle('open');navToggle.classList.toggle('active');document.body.classList.toggle('menu-open');});
-    mobileClose.addEventListener('click',()=>{mobileMenu.classList.remove('open');navToggle.classList.remove('active');document.body.classList.remove('menu-open');});
-    document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{mobileMenu.classList.remove('open');navToggle.classList.remove('active');document.body.classList.remove('menu-open');}));
-    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.1});
-    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    /* ── Language ── */
+    (function(){
+      const s = localStorage.getItem('oksana-lang');
+      if (s === 'en') document.body.classList.add('lang-en');
+    })();
+    function toggleLang(){
+      const e = document.body.classList.toggle('lang-en');
+      localStorage.setItem('oksana-lang', e ? 'en' : 'ru');
+    }
+    document.getElementById('langToggle').addEventListener('click', toggleLang);
+    document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
+
+    /* ── Mobile nav ── */
+    const navToggle  = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    navToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      navToggle.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+    mobileClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      navToggle.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+    document.querySelectorAll('.mobile-link').forEach(l =>
+      l.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        navToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      })
+    );
+
+    /* ── Helpers ── */
+    function parseBold(text) {
+      // Convert **bold** markdown to <strong>
+      return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    }
+
+    function formatDate(iso) {
+      const d = new Date(iso + 'T00:00:00');
+      return d.toLocaleDateString('ru-RU', { day:'numeric', month:'long', year:'numeric' });
+    }
+
+    function formatDateEn(iso) {
+      const d = new Date(iso + 'T00:00:00');
+      return d.toLocaleDateString('en-GB', { day:'numeric', month:'long', year:'numeric' });
+    }
+
+    /* Decorative SVG patterns per accent colour */
+    const DECO_SVG = {
+      gold: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="38" stroke="#c8a96e" stroke-width="1"/>
+        <circle cx="50" cy="50" r="26" stroke="#c8a96e" stroke-width=".6" stroke-dasharray="4 4"/>
+        <path d="M50 12 L56 44 L88 50 L56 56 L50 88 L44 56 L12 50 L44 44 Z" stroke="#c8a96e" stroke-width=".8" fill="none"/>
+      </svg>`,
+      sage: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="60" height="60" rx="8" stroke="#5a9e75" stroke-width="1"/>
+        <rect x="33" y="33" width="34" height="34" rx="4" stroke="#5a9e75" stroke-width=".6" stroke-dasharray="3 3"/>
+        <line x1="20" y1="50" x2="80" y2="50" stroke="#5a9e75" stroke-width=".5"/>
+        <line x1="50" y1="20" x2="50" y2="80" stroke="#5a9e75" stroke-width=".5"/>
+      </svg>`,
+      rose: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 15 C65 15 80 30 80 50 C80 70 65 85 50 85 C35 85 20 70 20 50 C20 30 35 15 50 15 Z" stroke="#c87a9e" stroke-width="1"/>
+        <path d="M50 28 C60 28 72 38 72 50 C72 62 60 72 50 72 C40 72 28 62 28 50 C28 38 40 28 50 28 Z" stroke="#c87a9e" stroke-width=".6" stroke-dasharray="3 3"/>
+        <circle cx="50" cy="50" r="8" stroke="#c87a9e" stroke-width=".8"/>
+      </svg>`,
+      slate: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="50,12 88,34 88,66 50,88 12,66 12,34" stroke="#6e84c8" stroke-width="1"/>
+        <polygon points="50,28 74,42 74,58 50,72 26,58 26,42" stroke="#6e84c8" stroke-width=".6" stroke-dasharray="3 3"/>
+        <circle cx="50" cy="50" r="6" stroke="#6e84c8" stroke-width=".8"/>
+      </svg>`,
+      indigo: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10 L90 90 L10 90 Z" stroke="#8a6ec8" stroke-width="1"/>
+        <path d="M50 30 L76 76 L24 76 Z" stroke="#8a6ec8" stroke-width=".6" stroke-dasharray="3 3"/>
+        <circle cx="50" cy="63" r="6" stroke="#8a6ec8" stroke-width=".8"/>
+      </svg>`
+    };
+
+    /* ── Render articles ── */
+    function renderArticles() {
+      const grid = document.getElementById('blogGrid');
+
+      if (!window.ARTICLES || ARTICLES.length === 0) {
+        grid.innerHTML = '<p class="blog-empty"><span class="ru">Статьи скоро появятся.</span><span class="en">Articles coming soon.</span></p>';
+        return;
+      }
+
+      // Sort newest first (by id descending)
+      const sorted = [...ARTICLES].sort((a, b) => Number(b.id) - Number(a.id));
+
+      sorted.forEach((art, idx) => {
+        const delay = ['reveal-d1','reveal-d2','reveal-d3','reveal-d4'][idx % 4];
+        const imgPath = art.image ? `articles/images/${art.image}` : null;
+        const accent  = art.accent || 'gold';
+
+        /* Visual area */
+        let visualHTML;
+        if (imgPath) {
+          visualHTML = `
+            <div class="card-visual" id="vis-${art.id}">
+              <span class="card-num">${String(art.id).padStart(2,'0')}</span>
+              <span class="card-date">
+                <span class="ru">${formatDate(art.date)}</span>
+                <span class="en">${formatDateEn(art.date)}</span>
+              </span>
+              <img src="${imgPath}" alt="" loading="lazy"
+                   onerror="this.closest('.card-visual').classList.add('grad-${accent}');this.style.display='none';document.getElementById('deco-${art.id}').style.display='flex'"/>
+            </div>`;
+        } else {
+          visualHTML = `
+            <div class="card-visual grad-${accent}" id="vis-${art.id}">
+              <span class="card-num">${String(art.id).padStart(2,'0')}</span>
+              <span class="card-date">
+                <span class="ru">${formatDate(art.date)}</span>
+                <span class="en">${formatDateEn(art.date)}</span>
+              </span>
+              <div class="card-visual-deco" id="deco-${art.id}">${DECO_SVG[accent] || DECO_SVG.gold}</div>
+            </div>`;
+        }
+
+        /* Points — show all, CSS hides n>3 initially */
+        const pointsHTML = art.points.map(pt => `
+          <div class="article-point">
+            <div class="article-point-dot"></div>
+            <p>
+              <span class="ru">${parseBold(pt.ru)}</span>
+              <span class="en">${parseBold(pt.en)}</span>
+            </p>
+          </div>`).join('');
+
+        const hasMore = art.points.length > 3;
+        const expandBtn = hasMore ? `
+          <button class="btn-expand" id="expand-${art.id}" aria-label="Show all points" onclick="toggleExpand('${art.id}')">
+            <span class="ru">Читать далее</span><span class="en">Read more</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>` : '';
+
+        const card = document.createElement('div');
+        card.className = `article-card reveal ${delay}`;
+        card.innerHTML = `
+          ${visualHTML}
+          <div class="article-card-top">
+            <h3>
+              <span class="ru">${art.title.ru}</span>
+              <span class="en">${art.title.en}</span>
+            </h3>
+            <p class="excerpt">
+              <span class="ru">${art.excerpt.ru}</span>
+              <span class="en">${art.excerpt.en}</span>
+            </p>
+          </div>
+          <div class="article-card-divider"></div>
+          <div class="article-body" id="body-${art.id}">
+            ${pointsHTML}
+          </div>
+          <div class="article-card-footer">
+            <span class="article-tag">
+              <span class="ru">${art.tag.ru}</span>
+              <span class="en">${art.tag.en}</span>
+            </span>
+            ${expandBtn}
+          </div>`;
+
+        grid.appendChild(card);
+      });
+
+      /* Re-init reveal observer */
+      const obs = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      }), { threshold: .08 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+
+    function toggleExpand(id) {
+      const body = document.getElementById('body-' + id);
+      const btn  = document.getElementById('expand-' + id);
+      const isOpen = body.classList.toggle('expanded');
+      btn.classList.toggle('expanded', isOpen);
+      const ruEl = btn.querySelector('.ru');
+      const enEl = btn.querySelector('.en');
+      if (ruEl) ruEl.textContent = isOpen ? 'Свернуть' : 'Читать далее';
+      if (enEl) enEl.textContent = isOpen ? 'Collapse'  : 'Read more';
+    }
+
+    renderArticles();
   </script>
 </body>
 </html>

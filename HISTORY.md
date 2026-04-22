@@ -3,6 +3,30 @@ Project: Oksana Ivanova - Psychologist Portfolio
 Repository: https://github.com/sanmila/oxana
 Live Preview: http://preview-oxana.sanjay.ru
 
+## [1.2.0] - 2026-04-22
+### Data-Driven Blog with Article Images
+
+#### Architecture
+- **`articles/data.js`** — Lightweight JS article index. All 4 existing articles migrated.
+  Each article is one object with: `id`, `date`, `tag`, `title`, `excerpt`, `points`, `image`, `accent`.
+  Adding a new article = append one object to the top of the array. No HTML editing needed.
+- **`articles/images/`** — Drop cover images here as `NN.webp` (e.g. `05.webp`). Matched by `id`.
+- **`blog.html`** — Fully JS-rendered from `data.js`. Sorted newest-first automatically.
+
+#### Visual Features
+- Each article card has a **16:7 cover image** area — uses the `articles/images/NN.webp` file if present.
+- **Gradient fallback**: if no image exists (or fails to load), a premium CSS gradient + unique SVG geometric deco shows instead. 5 accent themes: `gold`, `sage`, `rose`, `slate`, `indigo`.
+- Article number and date overlaid on card visual.
+- **"Read more" expand button** — first 3 points shown; tap to reveal all (CSS-controlled, zero extra JS weight).
+- Hover: card lifts + image subtle zoom.
+
+#### To publish a new weekly article
+1. Add object at the **top** of `ARTICLES` array in `articles/data.js`
+2. (Optional) Drop `NN.webp` in `articles/images/`
+3. Commit & push — done.
+
+---
+
 ## [1.1.0] - 2026-04-21
 ### Client Corrections & New Pages
 
