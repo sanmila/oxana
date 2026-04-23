@@ -309,7 +309,7 @@
     function renderArticles() {
       const grid = document.getElementById('blogGrid');
 
-      if (!window.ARTICLES || ARTICLES.length === 0) {
+      if (typeof ARTICLES === 'undefined' || !ARTICLES || ARTICLES.length === 0) {
         grid.innerHTML = '<p class="blog-empty"><span class="ru">Статьи скоро появятся.</span><span class="en">Articles coming soon.</span></p>';
         return;
       }
