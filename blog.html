@@ -234,8 +234,10 @@
       const metaDescEl = document.querySelector('meta[name="description"]');
       if (metaDescEl) metaDescEl.content = e ? metaDescs.en : metaDescs.ru;
     }
-    document.getElementById('langToggle').addEventListener('click', toggleLang);
-    document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
+    const toggleD = document.getElementById('langToggle');
+    if (toggleD) toggleD.addEventListener('click', toggleLang);
+    const toggleM = document.getElementById('langToggleMobile');
+    if (toggleM) toggleM.addEventListener('click', toggleLang);
 
     /* ── Mobile nav ── */
     const navToggle  = document.getElementById('navToggle');
