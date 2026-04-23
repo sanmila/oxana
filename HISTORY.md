@@ -3,6 +3,26 @@ Project: Oksana Ivanova - Psychologist Portfolio
 Repository: https://github.com/sanmila/oxana
 Live Preview: http://preview-oxana.sanjay.ru
 
+## [1.3.0] - 2026-04-23
+### SEO Optimization & Deployment Protocol
+
+#### SEO & Content Updates
+- **Technical SEO**: Added `robots.txt` and `sitemap.xml` for correct search engine indexing.
+- **Dynamic Meta Tags**: Updated `script.js` to automatically swap `<meta name="description">` content depending on the active language (RU/EN).
+- **Structured Data**: Injected `MedicalBusiness` JSON-LD schema into `index.html`, `blog.html`, and `certificates.html` to enhance Google Rich Results.
+- **Contact Links**: Updated Telegram handle to `@oksana_feya_krestnaya`. Converted both Telegram and Email text into clickable links (`href="https://t.me/..."` and `href="mailto:..."`) with hover transition effects.
+- **Bug Fix**: Fixed a `TypeError` in `blog.html` and `certificates.html` caused by missing mobile language toggles. Added safe DOM checks to ensure `renderArticles()` executes properly.
+
+#### Deployment Protocol (Bitwarden SSH Bypass)
+- **Issue**: Deploying via `scp` or `ssh` was instantly failing with `Permission denied (publickey)`. This happened because the Bitwarden SSH Agent (`SSH_AUTH_SOCK`) was bombarding the VPS with unrelated keys (e.g., from the Oko project), hitting the server's `MaxAuthTries` limit before the correct key could be offered.
+- **Solution**: Deployed successfully by strictly bypassing the SSH Agent using the `-o IdentitiesOnly=yes` flag and explicitly pointing to the correct private key (`vps_begit`).
+- **Standard Deploy Command**: 
+  ```powershell
+  scp -r -o IdentitiesOnly=yes -i C:\Users\Sanjay\.ssh\vps_begit index.html blog.html certificates.html script.js styles.css robots.txt sitemap.xml HISTORY.md articles assets certificates root@31.128.41.93:/var/www/oxana/
+  ```
+
+---
+
 ## [1.2.0] - 2026-04-22
 ### Data-Driven Blog with Article Images
 
