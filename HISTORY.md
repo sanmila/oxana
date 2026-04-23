@@ -77,9 +77,9 @@ Live Preview: http://preview-oxana.sanjay.ru
 
 ### Phase 2: Security & SEO (Next Steps)
 - [ ] **SSL Provisioning**: Secure `preview-oxana.sanjay.ru` using Let's Encrypt / Certbot via the VPS Dashboard.
-- [ ] **Technical SEO**: Generate and upload `sitemap.xml` and `robots.txt` for search engine indexing.
-- [ ] **Meta Updates**: Add distinct meta titles and descriptions dynamically depending on the selected language (JS meta update loop).
-- [ ] **Structured Data**: Implement JSON-LD schema markup (LocalBusiness or MedicalBusiness) to improve rich results in Google.
+- [x] **Technical SEO**: Generate and upload `sitemap.xml` and `robots.txt` for search engine indexing.
+- [x] **Meta Updates**: Add distinct meta titles and descriptions dynamically depending on the selected language (JS meta update loop).
+- [x] **Structured Data**: Implement JSON-LD schema markup (LocalBusiness or MedicalBusiness) to improve rich results in Google.
 
 ### Phase 3: Functionality & Analytics
 - [ ] **Contact Form Integration**: Connect the current static booking form to a backend script (e.g. PHP Mailer, Node.js API, or Telegram Bot API) to capture actual user requests.

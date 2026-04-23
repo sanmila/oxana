@@ -2,17 +2,26 @@
 
 // Language switcher
     const titles = {
-      ru: 'Оксана Борисовна Иванова — Клинический психолог, семейный психолог',
-      en: 'Oksana Borisovna Ivanova — Clinical Psychologist, Family Psychologist'
+      ru: 'Оксана Иванова — Клинический и семейный психолог СПб | Консультация онлайн',
+      en: 'Oksana Ivanova — Clinical & Family Psychologist SPb | Online Consultation'
+    };
+    const metaDescs = {
+      ru: 'Клинический и семейный психолог в Санкт-Петербурге (СПб) и онлайн. Оксана Иванова. Помощь при тревоге, выгорании, кризисах в отношениях. Опыт 17 лет. Запишитесь на консультацию!',
+      en: 'Clinical & family psychologist in Saint Petersburg (SPb) and online. Oksana Ivanova. Support for anxiety, burnout, relationship crises. 17 years experience. Book a consultation!'
     };
 
     (function initLang() {
       const saved = localStorage.getItem('oksana-lang');
+      const metaDescEl = document.querySelector('meta[name="description"]');
       if (saved === 'en') {
         document.body.classList.add('lang-en');
+        document.documentElement.lang = 'en';
         document.title = titles.en;
+        if (metaDescEl) metaDescEl.content = metaDescs.en;
       } else {
+        document.documentElement.lang = 'ru';
         document.title = titles.ru;
+        if (metaDescEl) metaDescEl.content = metaDescs.ru;
       }
     })();
 
@@ -21,6 +30,8 @@
       localStorage.setItem('oksana-lang', isEn ? 'en' : 'ru');
       document.documentElement.lang = isEn ? 'en' : 'ru';
       document.title = isEn ? titles.en : titles.ru;
+      const metaDescEl = document.querySelector('meta[name="description"]');
+      if (metaDescEl) metaDescEl.content = isEn ? metaDescs.en : metaDescs.ru;
     }
 
     document.getElementById('langToggle').addEventListener('click', toggleLang);

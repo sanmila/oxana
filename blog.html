@@ -3,13 +3,37 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Блог — Оксана Иванова, клинический психолог</title>
-  <meta name="description" content="Статьи о психологии, тревоге, отношениях и внутреннем росте от клинического психолога Оксаны Ивановой."/>
+  <title>Блог психолога | Статьи о психологии, тревоге и отношениях — Оксана Иванова</title>
+  <meta name="description" content="Блог клинического и семейного психолога в СПб. Статьи о психологии, проработке тревоги, выгорания и выстраивании отношений. Автор: Оксана Иванова."/>
+  <meta name="keywords" content="блог психолога, статьи по психологии, психология отношений, тревожность, семейный психолог спб блог, оксана иванова" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@0,300;0,400;0,500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Оксана Иванова — Клинический психолог (Блог)",
+    "image": "https://oxanaivanova.ru/assets/hero.webp",
+    "url": "https://oxanaivanova.ru/blog.html",
+    "telephone": "Telegram: @oksanaivanova_0904",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Санкт-Петербург",
+      "addressCountry": "RU"
+    },
+    "medicalSpecialty": "Psychiatric",
+    "description": "Статьи о психологии, тревоге, отношениях и внутреннем росте от клинического психолога Оксаны Ивановой.",
+    "sameAs": [
+      "https://t.me/oksanaivanova_0904"
+    ]
+  }
+  </script>
+
   <style>
     /* ── Page Hero ── */
     .page-hero{background:#1c1917;padding:9rem 0 5rem;text-align:center;position:relative;overflow:hidden}
@@ -179,13 +203,36 @@
     "use strict";
 
     /* ── Language ── */
+    const titles = {
+      ru: 'Блог психолога | Статьи о психологии, тревоге и отношениях — Оксана Иванова',
+      en: 'Psychology Blog | Articles on Anxiety & Relationships — Oksana Ivanova'
+    };
+    const metaDescs = {
+      ru: 'Блог клинического и семейного психолога в СПб. Статьи о психологии, проработке тревоги, выгорания и выстраивании отношений. Автор: Оксана Иванова.',
+      en: 'Blog by a clinical and family psychologist in SPb. Articles on psychology, anxiety, burnout, and building healthy relationships. By Oksana Ivanova.'
+    };
+
     (function(){
       const s = localStorage.getItem('oksana-lang');
-      if (s === 'en') document.body.classList.add('lang-en');
+      const metaDescEl = document.querySelector('meta[name="description"]');
+      if (s === 'en') {
+        document.body.classList.add('lang-en');
+        document.documentElement.lang = 'en';
+        document.title = titles.en;
+        if (metaDescEl) metaDescEl.content = metaDescs.en;
+      } else {
+        document.documentElement.lang = 'ru';
+        document.title = titles.ru;
+        if (metaDescEl) metaDescEl.content = metaDescs.ru;
+      }
     })();
     function toggleLang(){
       const e = document.body.classList.toggle('lang-en');
       localStorage.setItem('oksana-lang', e ? 'en' : 'ru');
+      document.documentElement.lang = e ? 'en' : 'ru';
+      document.title = e ? titles.en : titles.ru;
+      const metaDescEl = document.querySelector('meta[name="description"]');
+      if (metaDescEl) metaDescEl.content = e ? metaDescs.en : metaDescs.ru;
     }
     document.getElementById('langToggle').addEventListener('click', toggleLang);
     document.getElementById('langToggleMobile').addEventListener('click', toggleLang);
