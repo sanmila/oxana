@@ -1007,6 +1007,8 @@
     .contact-icon svg { width: 18px; height: 18px; stroke: var(--gold-light); fill: none; stroke-width: 1.5; }
     .contact-item-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(250,248,243,0.32); display: block; }
     .contact-item-value { color: rgba(250,248,243,0.82); font-size: 0.95rem; margin-top: 0.1rem; display: block; }
+    a.contact-item-value { text-decoration: none; transition: color 0.3s; }
+    a.contact-item-value:hover { color: #c8a96e; }
 
     /* Right column — elegant form card */
     .contact-form {
