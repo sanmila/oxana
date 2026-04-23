@@ -88,3 +88,4 @@ Live Preview: http://preview-oxana.sanjay.ru
 ### Phase 4: Performance & Polish
 - [ ] **Minification**: Introduce a build step to minify HTML, CSS, and JS before deploying to the VPS.
 - [ ] **CDN / Caching**: Set up Cloudflare or Nginx aggressive caching rules for static assets.
+- [ ] **Blog SEO Restructuring**: Convert the dynamically JS-rendered `blog.html` into individual static HTML pages for each article to improve search engine indexing and provide unique URLs for sharing.
