@@ -229,7 +229,7 @@
     }
     .nav-toggle span {
       display: block;
-      width: 22px; height: 1.5px;
+      width: 22px; height: 2px;
       background: var(--text);
       transition: all 0.3s;
       border-radius: 1px;
@@ -259,9 +259,9 @@
     }
     .mobile-menu.open { opacity: 1; pointer-events: all; }
     body.menu-open { overflow: hidden; }
-    .nav-toggle.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-toggle.active span:nth-child(2) { opacity: 0; }
-    .nav-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     .mobile-menu a {
       font-family: var(--font-serif);
       font-size: 2.2rem;
