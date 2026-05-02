@@ -156,3 +156,60 @@
         e.target.reset();
       }, 3000);
     }
+
+    // Native Video Player Logic
+    document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+      const video = wrapper.querySelector('.custom-video');
+      const btn = wrapper.querySelector('.play-pause-btn');
+      const playIcon = wrapper.querySelector('.play-icon');
+      const overlay = wrapper.querySelector('.video-overlay-gradient');
+      
+      if (!video || !btn) return;
+
+      wrapper.addEventListener('click', () => {
+        if (video.paused) {
+          // Pause all other videos
+          document.querySelectorAll('.custom-video').forEach(v => {
+            if (v !== video && !v.paused) {
+              v.pause();
+              const otherWrapper = v.closest('.video-wrapper');
+              if (otherWrapper) {
+                otherWrapper.querySelector('.play-icon').parentElement.style.opacity = '1';
+                otherWrapper.querySelector('.video-overlay-gradient').style.opacity = '1';
+              }
+            }
+          });
+          
+          video.play().then(() => {
+            btn.style.opacity = '0';
+            if (overlay) overlay.style.opacity = '0';
+          }).catch(e => console.log("Video play failed:", e));
+        } else {
+          video.pause();
+          btn.style.opacity = '1';
+          if (overlay) overlay.style.opacity = '1';
+        }
+      });
+
+      video.addEventListener('ended', () => {
+        btn.style.opacity = '1';
+        if (overlay) overlay.style.opacity = '1';
+      });
+    });
+
+    // Video Carousel Scroll Logic
+    const videoCarousel = document.getElementById('videoCarousel');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (videoCarousel && prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        const itemWidth = videoCarousel.querySelector('.video-wrapper').clientWidth;
+        videoCarousel.scrollBy({ left: -(itemWidth + 24), behavior: 'smooth' }); // 24px is the gap (1.5rem)
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const itemWidth = videoCarousel.querySelector('.video-wrapper').clientWidth;
+        videoCarousel.scrollBy({ left: itemWidth + 24, behavior: 'smooth' });
+      });
+    }
