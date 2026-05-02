@@ -35,14 +35,16 @@
     ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { margin: 0; }
+    html, body { 
+      overflow-x: hidden;
+      width: 100%;
+    }
     body {
       font-family: var(--font-sans);
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
     ::selection { background: var(--gold-pale); color: var(--text); }
     img { display: block; max-width: 100%; }
@@ -1282,11 +1284,10 @@
 .video-carousel-container {
   position: relative;
   width: 100%;
-  display: flex;
-  align-items: center;
 }
 .video-grid {
   display: flex;
+  width: 100%;
   gap: 1.5rem;
   overflow-x: auto;
   scroll-behavior: smooth;
