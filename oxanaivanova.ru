@@ -7,6 +7,14 @@ server {
         try_files $uri $uri/ /index.html;
     }
 
+    location /api/contact {
+        proxy_pass http://127.0.0.1:8088;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/oxanaivanova.ru/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/oxanaivanova.ru/privkey.pem; # managed by Certbot

@@ -851,14 +851,14 @@
                 <span class="ru">Ваше имя</span>
                 <span class="en">Your Name</span>
               </label>
-              <input type="text" placeholder="Алексей / Alex" required />
+              <input type="text" name="name" placeholder="Алексей / Alex" required />
             </div>
             <div class="form-group">
               <label>
                 <span class="ru">Телефон или Email</span>
                 <span class="en">Phone or Email</span>
               </label>
-              <input type="text" placeholder="+7 / @telegram" required />
+              <input type="text" name="contact" placeholder="+7 / @telegram" required />
             </div>
           </div>
           <div class="form-group">
@@ -866,7 +866,7 @@
               <span class="ru">Тема консультации</span>
               <span class="en">Consultation Topic</span>
             </label>
-            <select required>
+            <select name="topic" required>
               <option value="" disabled selected>Выберите тему</option>
               <option value="anxiety">Тревога и внутреннее напряжение</option>
               <option value="relationships">Трудности в отношениях</option>
@@ -882,7 +882,7 @@
               <span class="ru">Сообщение</span>
               <span class="en">Message</span>
             </label>
-            <textarea placeholder="Расскажите коротко о вашем запросе / Briefly describe your request"></textarea>
+            <textarea name="message" placeholder="Расскажите коротко о вашем запросе / Briefly describe your request"></textarea>
           </div>
           <button type="submit" class="form-submit">
             <span class="ru">Отправить заявку</span>
@@ -924,14 +924,14 @@
               <span class="ru">Ваше имя</span>
               <span class="en">Your Name</span>
             </label>
-            <input type="text" placeholder="Алексей / Alex" required />
+            <input type="text" name="name" placeholder="Алексей / Alex" required />
           </div>
           <div class="form-group">
             <label>
               <span class="ru">Телефон или Email</span>
               <span class="en">Phone or Email</span>
             </label>
-            <input type="text" placeholder="+7 / @telegram" required />
+            <input type="text" name="contact" placeholder="+7 / @telegram" required />
           </div>
         </div>
         <div class="form-group">
@@ -939,7 +939,7 @@
             <span class="ru">Тема консультации</span>
             <span class="en">Consultation Topic</span>
           </label>
-          <select required>
+          <select name="topic" required>
             <option value="" selected disabled>Выберите тему</option>
             <option value="anxiety">Тревога и внутреннее напряжение</option>
             <option value="relationships">Трудности в отношениях</option>
@@ -955,7 +955,7 @@
             <span class="ru">Сообщение</span>
             <span class="en">Message</span>
           </label>
-          <textarea placeholder="Расскажите коротко о вашем запросе / Briefly describe your request"></textarea>
+          <textarea name="message" placeholder="Расскажите коротко о вашем запросе / Briefly describe your request"></textarea>
         </div>
         <button type="submit" class="modal-submit">
           <span class="ru">Отправить заявку</span>

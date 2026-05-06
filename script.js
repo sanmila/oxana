@@ -129,31 +129,82 @@
       if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
 
+    async function sendToBackend(formElement, btnElement) {
+      const origHtml = btnElement.innerHTML;
+      btnElement.innerHTML = '<span class="ru">Отправка...</span><span class="en">Sending...</span>';
+      btnElement.style.opacity = '0.8';
+
+      const formData = new FormData(formElement);
+      const object = Object.fromEntries(formData);
+      
+      // Get human readable topic instead of value
+      const selectEl = formElement.querySelector('select[name="topic"]');
+      if (selectEl && selectEl.options[selectEl.selectedIndex]) {
+          object.topic = selectEl.options[selectEl.selectedIndex].text;
+      }
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(object)
+        });
+        const json = await response.json();
+        
+        if (response.status === 200) {
+          btnElement.innerHTML = '<span class="ru">Отправлено ✓</span><span class="en">Sent ✓</span>';
+          btnElement.style.background = '#5a8a5a';
+          btnElement.style.opacity = '1';
+          return true;
+        } else {
+          console.error("Backend Error:", json);
+          btnElement.innerHTML = '<span class="ru">Ошибка ✕</span><span class="en">Error ✕</span>';
+          btnElement.style.background = '#a84a4a';
+          return false;
+        }
+      } catch (error) {
+        console.error("Fetch Error:", error);
+        btnElement.innerHTML = '<span class="ru">Ошибка ✕</span><span class="en">Error ✕</span>';
+        btnElement.style.background = '#a84a4a';
+        return false;
+      }
+    }
+
     // Modal form submit
-    function handleModalSubmit(e) {
+    async function handleModalSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.modal-submit');
-      const orig = btn.innerHTML;
-      btn.innerHTML = '<span class="ru">Отправлено ✓</span><span class="en">Sent ✓</span>';
-      btn.style.background = '#5a8a5a';
+      const origHtml = btn.innerHTML;
+      
+      const success = await sendToBackend(e.target, btn);
+      
       setTimeout(() => {
-        btn.innerHTML = orig;
+        btn.innerHTML = origHtml;
         btn.style.background = '';
-        closeModal();
-      }, 2500);
+        btn.style.opacity = '1';
+        if (success) {
+          e.target.reset();
+          closeModal();
+        }
+      }, 3000);
     }
 
     // Contact form
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.form-submit');
-      const orig = btn.innerHTML;
-      btn.innerHTML = '<span class="ru">Отправлено ✓</span><span class="en">Sent ✓</span>';
-      btn.style.background = '#5a8a5a';
+      const origHtml = btn.innerHTML;
+      
+      const success = await sendToBackend(e.target, btn);
+      
       setTimeout(() => {
-        btn.innerHTML = orig;
+        btn.innerHTML = origHtml;
         btn.style.background = '';
-        e.target.reset();
+        btn.style.opacity = '1';
+        if (success) e.target.reset();
       }, 3000);
     }
 

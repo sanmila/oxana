@@ -1,0 +1,13 @@
+[Unit]
+Description=Oxana Telegram Backend API
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/oxana_backend
+ExecStart=/usr/bin/python3 /opt/oxana_backend/backend.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
