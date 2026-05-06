@@ -7,8 +7,17 @@ import urllib.parse
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-TELEGRAM_BOT_TOKEN = "8781850578:AAExtfS11MjzHnynzkP-6Jh_GzhOT1NLZzE"
-TELEGRAM_CHAT_ID = "1207463365"
+import os
+CONFIG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
+try:
+    with open(CONFIG_FILE, 'r') as f:
+        config = json.load(f)
+        TELEGRAM_BOT_TOKEN = config.get("TELEGRAM_BOT_TOKEN", "")
+        TELEGRAM_CHAT_ID = config.get("TELEGRAM_CHAT_ID", "")
+except Exception as e:
+    logging.warning(f"Could not load config.json: {e}")
+    TELEGRAM_BOT_TOKEN = ""
+    TELEGRAM_CHAT_ID = ""
 
 class RequestHandler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):

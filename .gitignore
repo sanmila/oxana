@@ -2,3 +2,4 @@ update.tar
 temp_json.txt
 assets/videos/*.MP4
 assets/videos/*-*.MP4
+config.json
