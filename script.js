@@ -272,3 +272,25 @@
         videoCarousel.scrollBy({ left: itemWidth + 24, behavior: 'smooth' });
       });
     }
+
+    // Custom Validation Messages based on current language
+    const requiredInputs = document.querySelectorAll('input[required], select[required], textarea[required]');
+    requiredInputs.forEach(input => {
+      input.addEventListener('invalid', function(e) {
+        const isEn = document.body.classList.contains('lang-en');
+        if (this.validity.valueMissing) {
+          this.setCustomValidity(isEn ? 'Please fill out this field.' : 'Пожалуйста, заполните это поле.');
+        } else {
+          this.setCustomValidity('');
+        }
+      });
+      input.addEventListener('input', function(e) {
+        this.setCustomValidity('');
+      });
+      // specific listener for select changes
+      if(input.tagName === 'SELECT') {
+        input.addEventListener('change', function(e) {
+            this.setCustomValidity('');
+        });
+      }
+    });
