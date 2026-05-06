@@ -176,6 +176,10 @@
     // Modal form submit
     async function handleModalSubmit(e) {
       e.preventDefault();
+      if (!e.target.checkValidity()) {
+        e.target.reportValidity();
+        return;
+      }
       const btn = e.target.querySelector('.modal-submit');
       const origHtml = btn.innerHTML;
       
@@ -195,6 +199,10 @@
     // Contact form
     async function handleSubmit(e) {
       e.preventDefault();
+      if (!e.target.checkValidity()) {
+        e.target.reportValidity();
+        return;
+      }
       const btn = e.target.querySelector('.form-submit');
       const origHtml = btn.innerHTML;
       
