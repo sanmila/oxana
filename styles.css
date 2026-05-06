@@ -693,7 +693,7 @@
     .gallery { background: var(--surface-dark); padding: var(--section-py) 0; }
     .gallery .eyebrow { color: var(--gold-light); }
     .gallery h2 { color: var(--text-inv); }
-    .gallery .lead { color: rgba(250,248,243,0.5); }
+    .gallery .lead { color: rgba(250,248,243,1); }
     .gallery .divider { background: linear-gradient(90deg, var(--gold-light), var(--gold)); }
 
     /* Single full-width editorial image */
@@ -730,7 +730,7 @@
       font-family: var(--font-serif);
       font-size: 0.875rem;
       font-style: italic;
-      color: rgba(250,248,243,0.65);
+      color: rgba(250,248,243,0.9);
       text-align: center;
       line-height: 1.65;
     }
